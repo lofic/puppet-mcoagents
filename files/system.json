@@ -1,0 +1,88 @@
+{
+  "$schema": "https://choria.io/schemas/mcorpc/ddl/v1/agent.json",
+  "metadata": {
+    "name": "system",
+    "description": "Agent to manage the operating system",
+    "author": "Louis Coilliot",
+    "license": "Apache License 2.0",
+    "version": "0.0.1",
+    "url": "http://www.example.com",
+    "timeout": 10
+  },
+  "actions": [
+    {
+      "action": "halt",
+      "input": {
+        "areyousure": {
+          "prompt": "Are you sure",
+          "description": "Are you sure ?",
+          "type": "string",
+          "default": null,
+          "optional": false,
+          "validation": "^(yes|no)$",
+          "maxlength": 3
+        }
+      },
+      "output": {
+        "output": {
+          "description": "Exit code from system shutdown",
+          "display_as": "Output",
+          "default": null
+        }
+      },
+      "display": "failed",
+      "description": "halt -p"
+    },
+    {
+      "action": "ntpdate",
+      "input": {
+        "ntpserver": {
+          "prompt": "NTP server",
+          "description": "The NTP server to synchronize with",
+          "type": "string",
+          "default": null,
+          "optional": true,
+          "validation": "^[a-zA-Z\\-_\\d\\.]+$",
+          "maxlength": 30
+        }
+      },
+      "output": {
+        "output": {
+          "description": "Status for ntpdate",
+          "display_as": "output",
+          "default": null
+        },
+        "exitcode": {
+          "description": "Exit code for ntpdate",
+          "display_as": "exitcode",
+          "default": null
+        }
+      },
+      "display": "failed",
+      "description": "ntpdate"
+    },
+    {
+      "action": "reboot",
+      "input": {
+        "areyousure": {
+          "prompt": "Are you sure",
+          "description": "Are you sure ?",
+          "type": "string",
+          "default": null,
+          "optional": false,
+          "validation": "^(yes|no)$",
+          "maxlength": 3
+        }
+      },
+      "output": {
+        "output": {
+          "description": "Exit code from system reboot",
+          "display_as": "output",
+          "default": null
+        }
+      },
+      "display": "failed",
+      "description": "reboot"
+    }
+  ]
+}

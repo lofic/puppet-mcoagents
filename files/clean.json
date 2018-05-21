@@ -1,0 +1,41 @@
+{
+  "$schema": "https://choria.io/schemas/mcorpc/ddl/v1/agent.json",
+  "metadata": {
+    "name": "clean",
+    "description": "Maintenance tasks for test VMs",
+    "author": "Louis Coilliot",
+    "license": "Apache License 2.0",
+    "version": "1.0.0",
+    "url": "http://www.example.com",
+    "timeout": 60
+  },
+  "actions": [
+    {
+      "action": "all",
+      "input": {
+      },
+      "output": {
+      },
+      "display": "always",
+      "description": "Clean all"
+    },
+    {
+      "action": "filebucket",
+      "input": {
+      },
+      "output": {
+      },
+      "display": "always",
+      "description": "Clean Puppet filebucket"
+    },
+    {
+      "action": "logs",
+      "input": {
+      },
+      "output": {
+      },
+      "display": "always",
+      "description": "Clean logs"
+    }
+  ]
+}
