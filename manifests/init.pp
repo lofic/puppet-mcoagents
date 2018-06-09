@@ -6,7 +6,7 @@ class mcoagents {
 
     $aplugfolder = '/opt/puppetlabs/mcollective/plugins/mcollective/agent'
 
-    File {
+    $filedefaults = {
         ensure  => present,
         owner   => 'root',
         group   => 'root',
@@ -19,8 +19,10 @@ class mcoagents {
 
     $agents.each |$a| {
         [ 'ddl', 'rb', 'json' ].each |$ext| {
-            file { "${aplugfolder}/${a}.${ext}":
-                source => "puppet:///modules/mcoagents/${a}.${ext}",
+            file {
+                default: * => $filedefaults;
+                "${aplugfolder}/${a}.${ext}":
+                    source => "puppet:///modules/mcoagents/${a}.${ext}";
             }
         }
     }
