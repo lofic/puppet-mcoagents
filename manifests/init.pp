@@ -11,8 +11,7 @@ class mcoagents {
         owner   => 'root',
         group   => 'root',
         mode    => '0644',
-        require => Class['mcollective'],
-        notify  => Service['mcollective'],
+        notify  => Class['choria::service'],
     }
 
     $agents = [ 'clean', 'system' ]
